@@ -155,13 +155,8 @@ extern "C" uint8_t canReceive_driver(CANHandle handle_, Message* message) {
 	ZlgCanHandle *handle = (ZlgCanHandle*) handle_;
 	UINT num = 0;
 
-	// wait message
-	while (num == 0) {
-		num = ZCAN_GetReceiveNum(handle->channelHandle, TYPE_CAN);
-	}
-
 	ZCAN_Receive_Data data;
-	UINT len = ZCAN_Receive(handle->channelHandle, &data, 1);
+	UINT len = ZCAN_Receive(handle->channelHandle, &data, 1);	// default behavior is block (wait_time = -1, wait forever)
 	if (len < 1) {
 		PRINT("Receive failed!");
 		return 1;

@@ -153,7 +153,6 @@ extern "C" int32_t canClose_driver(CANHandle handle_) {
 extern "C" uint8_t canReceive_driver(CANHandle handle_, Message* message) {
 	PRINT("canReceive_driver");
 	ZlgCanHandle *handle = (ZlgCanHandle*) handle_;
-	UINT num = 0;
 
 	ZCAN_Receive_Data data;
 	UINT len = ZCAN_Receive(handle->channelHandle, &data, 1);	// default behavior is block (wait_time = -1, wait forever)

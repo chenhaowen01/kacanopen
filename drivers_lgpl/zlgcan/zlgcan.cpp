@@ -123,7 +123,7 @@ extern "C" CANHandle canOpen_driver(CANBoard* board) {
 
 	ZlgCanHandle *handle = new ZlgCanHandle;
 	handle->devHandle = devHandle;
-	handle->channelHandle = devHandle;
+	handle->channelHandle = channelHandle;
 
 	return (CANHandle) handle;
 }
